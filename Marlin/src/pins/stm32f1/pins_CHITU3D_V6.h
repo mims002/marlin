@@ -28,6 +28,7 @@
 #define Z2_DIR_PIN                          PF1
 
 #define Z_STOP_PIN                          PG9
+#define SERVO0_PIN                          Z_STOP_PIN
 
 #ifndef FIL_RUNOUT2_PIN
   #define FIL_RUNOUT2_PIN                   PF13
