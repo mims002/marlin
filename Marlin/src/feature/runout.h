@@ -38,9 +38,9 @@
   #include "../lcd/extui/ui_api.h"
 #endif
 
-//#define FILAMENT_RUNOUT_SENSOR_DEBUG
+// #define FILAMENT_RUNOUT_SENSOR_DEBUG
 #ifndef FILAMENT_RUNOUT_THRESHOLD
-  #define FILAMENT_RUNOUT_THRESHOLD 5
+  #define FILAMENT_RUNOUT_THRESHOLD 7
 #endif
 
 void event_filament_runout(const uint8_t extruder);
