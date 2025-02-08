@@ -38,14 +38,14 @@
 //#define BS_HOST_DEBUG(...)  {char s[255]; sprintf(s,__VA_ARGS__); SERIAL_ECHOLNPGM("UHS:",s);}
 //#define MAX_HOST_DEBUG(...) {char s[255]; sprintf(s,__VA_ARGS__); SERIAL_ECHOLNPGM("UHS:",s);}
 
-#if ENABLED(USB_FLASH_DRIVE_SUPPORT)
+#if HAS_USB_FLASH_DRIVE
 
 #include "../../MarlinCore.h"
 #include "../../core/serial.h"
 #include "../../module/temperature.h"
 
 #if DISABLED(USE_OTG_USB_HOST) && !PINS_EXIST(USB_CS, USB_INTR)
-  #error "USB_FLASH_DRIVE_SUPPORT requires USB_CS_PIN and USB_INTR_PIN to be defined."
+  #error "USB_FLASH_DRIVE_SUPPORT requires USB_CS_PIN and USB_INTR_PIN (or USE_OTG_USB_HOST) to be defined."
 #endif
 
 #if ENABLED(USE_UHS3_USB)
@@ -84,10 +84,10 @@
 #elif ENABLED(USE_OTG_USB_HOST)
 
   #if HAS_SD_HOST_DRIVE
-    #include HAL_PATH(../../HAL, msc_sd.h)
+    #include HAL_PATH(../.., msc_sd.h)
   #endif
 
-  #include HAL_PATH(../../HAL, usb_host.h)
+  #include HAL_PATH(../.., usb_host.h)
 
   #define UHS_START usb.start()
   #define rREVISION 0
@@ -325,4 +325,4 @@ bool DiskIODriver_USBFlash::writeBlock(uint32_t block, const uint8_t *src) {
   return bulk.Write(0, block, 512, 1, src) == 0;
 }
 
-#endif // USB_FLASH_DRIVE_SUPPORT
+#endif // HAS_USB_FLASH_DRIVE

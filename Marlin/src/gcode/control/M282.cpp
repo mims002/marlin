@@ -22,6 +22,32 @@
 
 #include "../../inc/MarlinConfig.h"
 
+<<<<<<<< HEAD:Marlin/src/gcode/temp/M123.cpp
+#if HAS_FANCHECK
+
+#include "../gcode.h"
+#include "../../feature/fancheck.h"
+
+/**
+ * M123: Report fan states -or- set interval for auto-report
+ *
+ *   S<seconds> : Set auto-report interval
+ */
+void GcodeSuite::M123() {
+
+  #if ENABLED(AUTO_REPORT_FANS)
+    if (parser.seenval('S')) {
+      fan_check.auto_reporter.set_interval(parser.value_byte());
+      return;
+    }
+  #endif
+
+  fan_check.print_fan_states();
+
+}
+
+#endif // HAS_FANCHECK
+========
 #if ENABLED(SERVO_DETACH_GCODE)
 
 #include "../gcode.h"
@@ -43,3 +69,4 @@ void GcodeSuite::M282() {
 }
 
 #endif // SERVO_DETACH_GCODE
+>>>>>>>> upstream/bugfix-2.1.x:Marlin/src/gcode/control/M282.cpp

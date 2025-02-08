@@ -95,8 +95,8 @@
 #define HEATER_0_PIN                          33
 #define HEATER_BED_PIN                        31
 
-#ifndef FAN_PIN
-  #define FAN_PIN                             30  // "FAN1"
+#ifndef FAN0_PIN
+  #define FAN0_PIN                            30  // "FAN1"
 #endif
 #define FAN1_PIN                              32  // "FAN2"
 
@@ -110,8 +110,8 @@
 #define SERVO0_PIN                            26  // PWM_EXT1
 #define SERVO1_PIN                            27  // PWM_EXT2
 
-#define SDSS                                  57  // Onboard SD card reader
-//#define SDSS                                 9  // LCD SD card reader
+#define SD_SS_PIN                             57  // Onboard SD card reader
+//#define SD_SS_PIN                            9  // LCD SD card reader
 #define LED_PIN                               21  // STATUS_LED
 
 //
@@ -120,7 +120,7 @@
 #define SD_DETECT_PIN                         56  // SD_CARD_DET
 #define BEEPER_PIN                            46  // LCD_BEEPER
 #define LCD_PINS_RS                           49  // LCD_RS
-#define LCD_PINS_ENABLE                       48  // LCD_EN
+#define LCD_PINS_EN                           48  // LCD_EN
 #define LCD_PINS_D4                           50  // LCD_D4
 #define LCD_PINS_D5                           51  // LCD_D5
 #define LCD_PINS_D6                           52  // LCD_D6
